@@ -1,0 +1,97 @@
+{
+    "home-header": {
+        "genre": "Thể loại",
+        "find-movies-by-genre": "Tìm phim theo thể loại",
+        "cinema": "Rạp phim",
+        "choose-cinemas-across-the-country": "Chọn rạp phim",
+        "film": "Phim",
+        "choose-the-movie-as-you-want": "Chọn phim theo mong muốn",
+        "promotion": "Khuyến mãi",
+        "for-couples-or-vouchers": "Dành cho các cặp đôi hoặc voucher",
+        "support": "Hổ trợ",
+        "welcome": "Xin chào, "
+    },
+    "banner": {
+        "booking-cine-film": "ĐẶT VÉ CINE-FLIM",
+        "the-hottest-movies-right-now": "NHỮNG BỘ PHIM HOT NHẤT HIỆN NAY",
+        "now-showing": "Phim đang chiếu",
+        "coming-soon": "Phim sắp chiếu"
+    },
+    "menu": {
+        "system": {
+            "header": "Hệ thống",
+            "system-administrator": {
+                "header": "Quản trị hệ thống",
+                "user-manage": "Quản lý người sử dụng",
+                "user-redux": "Quản lý user redux",
+                "register-package-group-or-account": "Đăng ký gói dịch vụ cho nhóm/tài khoản"
+            },
+            "system-parameter": {
+                "header": "Tham số hệ thống"
+            }
+        },
+        "admin": {
+            "manage": "Quản lý",
+            "staff-manage": "Quản lý nhân viên",
+            "customer-manage": "Quản lý khách hàng",
+            "admin-manage": "Quản trị viên (VIP)",
+            "cinema": "Rạp phim",
+            "cinema-manage": "Quản lý rạp phim",
+            "genre": "Thể loại",
+            "genre-manage": "Quản lý thể loại",
+            "film": "Phim",
+            "film-manage": "Quản lý phim",
+            "information": "Thông tin",
+            "information-manage": "Quản lý thông tin",
+            "post-film": "Bài viết của phim",
+            "post-now-showing-manage": "Quản lý phim đang chiếu",
+            "banner": "Banner",
+            "banner-manage": "Quản lý Banner",
+            "news": "Tin tức",
+            "news-manage": "Quản lý tin tức"
+        }
+    },
+    "user-manage": {
+        "add-user": "Thêm mới người dùng",
+        "edit-user": "Chỉnh sửa người dùng",
+        "email": "Email",
+        "password": "Mật khẩu",
+        "lastname": "Họ",
+        "firstname": "Tên",
+        "address": "Địa chỉ",
+        "gender": "Giới tính",
+        "role": "Chức vụ",
+        "phonenumber": "Số điện thoại",
+        "avatar": "Ảnh đại diện",
+        "save": "Lưu người dùng ",
+        "edit": "Lưu chỉnh sửa",
+        "uploadimage": "Tải ảnh"
+    },
+    "film-manage": {
+        "add-film": "Thêm mới phim",
+        "edit-film": "Chỉnh sửa phim",
+        "nameVi": "Tên phim VN",
+        "nameEn": "Tên phim EN",
+        "genre": "Thể loại phim",
+        "avatar": "Ảnh của phim",
+        "uploadimage": "Tải ảnh",
+        "save": "Lưu phim",
+        "edit": "Chỉnh sửa phim",
+        "show": "Trạng thái"
+    },
+    "film": {
+        "outstanding-showing": "Phim nổi bật",
+        "see more": "Xem thêm"
+    },
+    "post-film": {
+        "create-infor-film": "Tạo thông tin",
+        "edit-infor-film": "Chỉnh sửa thông tin"
+    },
+    "infor-film": {
+        "summary": "Tóm tắt",
+        "title-content": "Nội dung phim"
+    },
+    "modal": {
+        "list-films": "Danh sách phim"
+    }
+}

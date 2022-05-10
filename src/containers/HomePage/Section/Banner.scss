@@ -1,0 +1,82 @@
+*{
+    margin: 0;
+    padding: 0;
+    // box-sizing: border-box;
+    
+}
+div{
+    display: block;
+}
+.content-banner{
+    height: 450px !important;
+    width: 100%;
+   
+    .mySwiper{
+        width: 100%;
+        // position: relative;
+        // height: 100%;
+        // margin: 0;
+        // padding: 0;
+        box-sizing: content-box;
+    .container-banners{
+        width: 100%;
+        height: 450px;
+        margin-left: auto;
+        margin-right: auto;
+        
+        .banners{
+            margin: auto;
+            padding: auto;
+		    z-index: 4;
+            width: auto;
+            height: 100%;
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            
+        .swiper {
+            width: 100%;
+            height: 100%;
+        }
+  
+        .swiper-slide {
+            text-align: center;
+            font-size: 18px;
+            background: #fff;
+  
+    /* Center slide text vertically */
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            -webkit-justify-content: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            -webkit-align-items: center;
+            align-items: center;
+        }
+  
+        .swiper-slide img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        
+
+    }
+}
+}
+}}
+
+@media only screen and (max-width: 991px){
+    .banners {
+        background-size: cover !important;
+        background-repeat: no-repeat;
+        width: auto !important;
+        height: 450px !important;
+        
+    }
+}

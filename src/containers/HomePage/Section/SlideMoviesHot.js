@@ -1,0 +1,147 @@
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import "@fontsource/quicksand";
+import { FormattedMessage } from 'react-intl';
+import * as actions from '../../../store/actions';
+import { LANGUAGES } from '../../../utils';
+import { withRouter } from 'react-router';
+import "./SlideMoviesHot.scss";
+import { Navigation, Pagination, Autoplay } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react/swiper-react.js';
+import 'swiper/swiper.scss';
+import 'swiper/modules/navigation/navigation.scss';
+import 'swiper/modules/pagination/pagination.scss';
+
+class SlideMoviesHot extends Component {
+
+    constructor(props) {
+        super(props)
+        this.state = {
+            arrFilms: []
+        }
+    }
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        if (prevProps.topFilmsRedux !== this.props.topFilmsRedux) {
+            this.setState({
+                arrFilms: this.props.topFilmsRedux,
+            })
+        }
+    }
+    componentDidMount() {
+        this.props.loadTopFilm();
+    }
+    handleViewInforFilm = (film) => {
+        if (this.props.history) {
+            this.props.history.push(`/inforfilm/${film.id}`)
+        }
+
+    }
+    render() {
+        let arrTopFilms = this.state.arrFilms;
+        let { language } = this.props
+        console.log(this.state)
+        return (
+            <section className="section-swiper">
+
+                <Swiper
+                    slidesPerView={4}
+                    spaceBetween={0}
+                    slidesPerGroup={1}
+                    loop={true}
+                    loopFillGroupWithBlank={true}
+                    pagination={{
+                        clickable: true,
+                    }}
+                    speed={1000}
+                    autoplay=
+                    {{
+                        delay: 6000,
+                        disableOnInteraction: false,
+                    }}
+                    navigation={true}
+                    modules={[Pagination, Navigation, Autoplay]}
+                    breakpoints={{
+                        // when window width is <= 499px
+                        250: {
+                            slidesPerView: 1,
+                            spaceBetweenSlides: 10
+                        },
+                        550: {
+                            slidesPerView: 2,
+                            spaceBetweenSlides: 30
+                        },
+                        830: {
+                            slidesPerView: 3,
+                            spaceBetweenSlides: 30
+                        },
+
+                        // when window width is <= 999px
+                        999: {
+                            slidesPerView: 4,
+                            spaceBetweenSlides: 30
+                        }
+                    }}
+                    className="mySwiper"
+                >
+                    {arrTopFilms && arrTopFilms.length > 0
+                        && arrTopFilms.map((item, index) => {
+                            let imageBase64 = '';
+                            if (item.image) {
+                                imageBase64 = new Buffer(item.image, 'base64').toString('binary');
+                            }
+                            let genreVi = `${item.genreData.valueVi}`;
+                            let genreEn = `${item.genreData.valueEn}`;
+                            let nameFilmVI = `${item.nameVi}`
+                            let nameFilmEN = `${item.nameEn}`
+                            return (
+                                <SwiperSlide><div className="card" key={index} onClick={() => this.handleViewInforFilm(item)}>
+                                    <div className="image" style={{ backgroundImage: `url(${imageBase64})` }}></div>
+                                    <div className="card-content">
+                                        <div className="title-movie">
+                                            <div className="name">{language === LANGUAGES.VI ? nameFilmVI : nameFilmEN}</div>
+                                            <div className="genre">({language === LANGUAGES.VI ? genreVi : genreEn})</div>
+                                            <div className="time">128 m</div>
+                                        </div>
+                                        <div className="rating">
+                                            <i className="fas fa-star"></i>
+                                            <i className="fas fa-star"></i>
+                                            <i className="fas fa-star"></i>
+                                            <i className="far fa-star"></i>
+                                            <i className="far fa-star"></i>
+                                        </div>
+                                        <div className="button">
+                                            <button className="booking">Booking</button>
+                                            <button className="detail">Detail</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                </SwiperSlide>
+                            )
+                        })
+                    }
+                </Swiper>
+
+            </section>
+
+
+        );
+    }
+
+}
+
+const mapStateToProps = state => {
+    return {
+        isLoggedIn: state.user.isLoggedIn,
+        language: state.app.language,
+        topFilmsRedux: state.film.topFilms
+    };
+};
+
+const mapDispatchToProps = dispatch => {
+    return {
+        loadTopFilm: () => dispatch(actions.fetchTopFilms())
+
+    };
+};
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(SlideMoviesHot));

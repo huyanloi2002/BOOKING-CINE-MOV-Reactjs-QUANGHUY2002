@@ -1,0 +1,97 @@
+{
+    "home-header": {
+        "genre": "Genre",
+        "find-movies-by-genre": "Find movies by genre",
+        "cinema": "Cinema",
+        "choose-cinemas-across-the-country": "Choose cinemas",
+        "film": "Movies",
+        "choose-the-movie-as-you-want": "Choose the movies as you want",
+        "promotion": "Promotion",
+        "for-couples-or-vouchers": "For couples or vouchers",
+        "support": "Support",
+        "welcome": "Welcome, "
+    },
+    "banner": {
+        "booking-cine-film": "BOOKING CINE-FLIM",
+        "the-hottest-movies-right-now": "THE HOTTEST MOVIES RIGHT NOW",
+        "now-showing": "Now showing",
+        "coming-soon": "Coming soon"
+    },
+    "menu": {
+        "system": {
+            "header": "System",
+            "system-administrator": {
+                "header": "System Administrator",
+                "user-manage": "User manage",
+                "user-redux": "Manage user using redux",
+                "register-package-group-or-account": "Register service package for group/account"
+            },
+            "system-parameter": {
+                "header": "System-parameter"
+            }
+        },
+        "admin": {
+            "manage": "Manages",
+            "staff-manage": "Staffs Manage",
+            "customer-manage": "Customer Manage",
+            "admin-manage": "Admin (VIP)",
+            "cinema": "Cinemas",
+            "cinema-manage": "Cinemas Manage",
+            "genre": "Genres",
+            "genre-manage": "Genres Manage",
+            "film": "Films",
+            "film-manage": "Films Manage",
+            "information": "Informations",
+            "information-manage": "Informations Manage",
+            "post-film": "Post of film",
+            "post-now-showing-manage": "Post of now showing film",
+            "banner": "Banner",
+            "banner-manage": "Banner Manage",
+            "news": "News",
+            "news-manage": "News Manage"
+        }
+    },
+    "user-manage": {
+        "add-user": "Add a new user",
+        "edit-user": "Edit the user",
+        "email": "Email",
+        "password": "Password",
+        "lastname": "Last name",
+        "firstname": "First name",
+        "address": "Address",
+        "gender": "Gender",
+        "role": "Role",
+        "phonenumber": "Phone Number",
+        "avatar": "Avatar",
+        "save": "Save user",
+        "edit": "Edit user",
+        "uploadimage": "Upload"
+    },
+    "film-manage": {
+        "add-film": "Add a new film",
+        "edit-film": "Edit the film",
+        "nameVi": "Name VN",
+        "nameEn": "Name EN",
+        "genre": "Genre",
+        "avatar": "Film's avatar",
+        "uploadimage": "Upload",
+        "save": "Save film",
+        "edit": "Edit film",
+        "show": "Status"
+    },
+    "film": {
+        "outstanding-showing": "Out Standing Movies",
+        "see more": "See more"
+    },
+    "post-film": {
+        "create-infor-film": "Create Infor",
+        "edit-infor-film": "Edit Infor"
+    },
+    "infor-film": {
+        "summary": "Summary",
+        "title-content": "Movie Details"
+    },
+    "modal": {
+        "list-films": "List Movies"
+    }
+}
