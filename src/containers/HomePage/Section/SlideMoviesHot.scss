@@ -21,7 +21,7 @@
   .swiper-button-next,.swiper-button-prev{
       display: flex;
       justify-content: space-around !important;
-      color: #7d2ae8 !important;;
+      color: white !important;;
      
       }
   .swiper-slide {
@@ -54,17 +54,31 @@
       height: 7px !important;
       width: 20px !important;
       border-radius: 25px !important;
-      background:#7d2ae8 !important;
+      background:white !important;
   }
 
   .section-swiper {  
       width: 100%;
-      background: #2C2929;
-            .mySwiper{
+      background-color: #560e6f;
+      padding:10px 0;
+      background-image: url('https://www.movies-at.ie/wp-content/themes/movies-at/assets/img/bg-footer.png');
+      .title-hot-movies {
+        margin: 0 100px;
+        display: flex;
+        height: 50px;
+        align-items: flex-end;
+        .title-content{
+          font-size: 30px;
+          font-family: system-ui;
+          font-weight: 600;
+          text-shadow: 2px 2px purple;
+        }
+        }
+      .mySwiper{
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                height: 450px;
+                height: 400px;
             .card{
                 
                 display: flex;
@@ -76,12 +90,12 @@
                 height: 350px;
 		        padding: 0px;
 		        overflow: hidden;
-                border:2px solid white;
+                border:2px solid black;
                 outline: none;
                 
 		        &:hover {
-                    // box-shadow: #7d2ae8  0px 0px 0px 0px;
-                    border:2px solid #7d2ae8;
+                    // box-shadow: #560e6f  0px 0px 0px 0px;
+                    border:2px solid white;
                     transition: all 0.5s;
 			        .card-content {
 				        opacity: 1;
@@ -142,7 +156,7 @@
                         align-items: center;
                         margin-top: 5px;
                         i{
-                            color: #7d2ae8;
+                            color: #560e6f;
                             font-size:18px ;
                             margin: 0 2px;
                         }
@@ -154,7 +168,7 @@
                         justify-content: space-around;
                         gap:5px;
                         button{
-                            background: #7d2ae8;
+                            background: #560e6f;
                             border: none;
                             outline: none;
                             color:white;
@@ -171,4 +185,15 @@
                 }    }
             }
         }
+    }
+    @media only screen and (max-width: 991px){   
+        .section-swiper {  
+            .title-hot-movies {
+              margin: 0 20px;
+              .title-content{
+                font-size: 25px;
+                font-weight: 600;
+              }
+              }
+            }
     }

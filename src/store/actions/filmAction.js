@@ -1,22 +1,30 @@
 import actionTypes from './actionTypes';
 import {
-    getAllFilms,
-    createNewFilmService,
-    deleteFilmService,
-    editFilmService,
+    //film
+    getAllFilms, createNewFilmService, deleteFilmService, editFilmService,
+    //all code
     getAllCodeService,
-    getTopFilms,
-    saveInforFilmService,
-    saveBannerFilmService,
-    getAllBannerFilms,
-    getAllNews,
-    createNews,
-    deleteNews,
-    editNews, getTopNews
+    //infor film
+    getTopFilms, saveInforFilmService, getInforFilm, getMarkdownFilm,
+    //banner film
+    getBannerFilm, saveBannerFilmService, getAllBannerFilms,
+    //news
+    getAllNews, createNews, deleteNews, editNews, getTopNews,
+    //contact us
+    createContactUs, getAllContact,
+    //booking time
+    saveBulkBookingTime, getBookingTimeByDate,
+    //cinema tech
+    getAllCinemaTechs, createCinemaTech, deleteCinemaTech, editCinemaTech,
+    //buy combo
+    getAllBuyCombos, createBuyCombo, deleteBuyCombo, editBuyCombo,
+    //payment-type
+    getAllPaymentTypes, createPaymentType,
+    //price
+    getAllPrice
 } from '../../services/filmService'
 import { toast } from 'react-toastify';
-import { displayPartsToString } from 'typescript';
-
+//film
 export const fetchGenreStart = () => {
 
     return async (dispatch, getState) => {
@@ -98,7 +106,6 @@ export const fetchAllFilms = () => {
     return async (dispatch, getState) => {
         try {
             let res = await getAllFilms();
-            console.log('res film', res)
             if (res && res.errCode === 0) {
                 dispatch({
                     type: actionTypes.FETCH_ALL_FILMS_SUCCESS,
@@ -175,8 +182,7 @@ export const editFilmFail = () => ({
 export const fetchTopFilms = () => {
     return async (dispatch, getState) => {
         try {
-            let res = await getTopFilms('6');
-            console.log(res)
+            let res = await getTopFilms('5');
             if (res && res.errCode === 0) {
                 dispatch({
                     type: actionTypes.FETCH_TOP_FILMS_SUCCESS,
@@ -195,6 +201,7 @@ export const fetchTopFilms = () => {
         }
     }
 }
+//infor film
 export const saveInforFilm = (data) => {
     return async (dispatch, getState) => {
         try {
@@ -219,6 +226,7 @@ export const saveInforFilm = (data) => {
         }
     }
 }
+//banner film
 export const saveBannerFilms = (data) => {
     return async (dispatch, getState) => {
         try {
@@ -235,7 +243,7 @@ export const saveBannerFilms = (data) => {
                 })
             }
         } catch (e) {
-            toast.error(" 🦄 Save banner film errorsss !")
+            toast.error(" 🦄 Save banner film error !")
             console.log('SAVE_BANNER_FILM_FAIL', e)
             dispatch({
                 type: actionTypes.SAVE_BANNER_FILM_FAIL,
@@ -246,7 +254,7 @@ export const saveBannerFilms = (data) => {
 export const fetchBannerFilm = () => {
     return async (dispatch, getState) => {
         try {
-            let res = await getAllBannerFilms('4')
+            let res = await getAllBannerFilms('5')
             if (res && res.errCode === 0) {
                 dispatch({
                     type: actionTypes.FETCH_BANNER_FILMS_SUCCESS,
@@ -271,7 +279,7 @@ export const fetchBannerFilm = () => {
 export const fecthTopNews = () => {
     return async (dispatch, getState) => {
         try {
-            let res = await getTopNews('8')
+            let res = await getTopNews('5')
             if (res && res.errCode === 0) {
                 dispatch({
                     type: actionTypes.FETCH_TOP_NEWS_SUCCESS,
@@ -297,7 +305,6 @@ export const fetchAllNews = () => {
     return async (dispatch, getState) => {
         try {
             let res = await getAllNews();
-            console.log('res new', res)
             if (res && res.errCode === 0) {
                 dispatch({
                     type: actionTypes.FETCH_ALL_NEWS_SUCCESS,
@@ -389,6 +396,399 @@ export const deleteNewsAction = (newsId) => {
             toast.error(" 🦄 Delete news error !")
             dispatch({
                 type: actionTypes.DELETE_NEWS_FAIL
+            });
+        }
+    }
+}
+//contact us
+export const fetchAllContact = () => {
+    return async (dispatch, getState) => {
+        try {
+            let res = await getAllContact();
+            if (res && res.errCode === 0) {
+                dispatch({
+                    type: actionTypes.FETCH_ALL_CONTACT_US_SUCCESS,
+                    dataAllContact: res.data
+                });
+            } else {
+                dispatch({
+                    type: actionTypes.FETCH_ALL_CONTACT_US_FAIL
+                })
+            }
+        } catch (e) {
+            console.log(e)
+            dispatch({
+                type: actionTypes.FETCH_ALL_CONTACT_US_FAIL
+            })
+        }
+    }
+}
+export const createContactUsAction = (data) => {
+    return async (dispatch, getState) => {
+        try {
+            let res = await createContactUs(data);
+            if (res && res.errCode === 0) {
+                toast.success(" 🦄 Send message succeed !")
+                dispatch({
+                    type: actionTypes.CREATE_CONTACT_US_SUCCESS
+                });
+                dispatch(fetchAllContact())
+            } else {
+                toast.error(" 🦄 Send message error !")
+                dispatch({
+                    type: actionTypes.CREATE_CONTACT_US_FAIL
+                });
+            }
+        } catch (e) {
+            console.log(e)
+            toast.error(" 🦄 Send message error !")
+            dispatch({
+                type: actionTypes.CREATE_CONTACT_US_FAIL
+            });
+        }
+    }
+
+}
+//booking time
+export const fetchAllBookingTime = (type) => {
+    return async (dispatch, getState) => {
+        try {
+            let res = await getAllCodeService("TIME")
+            if (res && res.errCode === 0) {
+                dispatch({
+                    type: actionTypes.FETCH_ALLCODE_BOOKING_TIME_SUCCESS,
+                    dataTime: res.data
+                })
+            } else {
+                dispatch({
+                    type: actionTypes.FETCH_ALLCODE_BOOKING_TIME_FAIL,
+                })
+            }
+        } catch (e) {
+            console.log('FETCH_ALLCODE_BOOKING_TIME_FAIL: ', e)
+            dispatch({
+                type: actionTypes.FETCH_ALLCODE_BOOKING_TIME_FAIL,
+            })
+        }
+    }
+}
+
+//cinema tech
+export const fetchAllCinemaTech = () => {
+
+    return async (dispatch, getState) => {
+        try {
+            let res = await getAllCinemaTechs();
+            if (res && res.errCode === 0) {
+                dispatch({
+                    type: actionTypes.FETCH_ALL_CINEMA_TECHS_SUCCESS,
+                    dataAllCinemaTech: res.data,
+                });
+            }
+            else {
+                dispatch({
+                    type: actionTypes.FETCH_ALL_CINEMA_TECHS_FAIL,
+                })
+            }
+        } catch (e) {
+            console.log('FETCH_ALL_CINEMA_TECHS_FAIL: ', e)
+            dispatch({
+                type: actionTypes.FETCH_ALL_CINEMA_TECHS_FAIL,
+            })
+        }
+    }
+}
+export const createCinemaTechAction = (data) => {
+    return async (dispatch, getState) => {
+        try {
+            let res = await createCinemaTech(data);
+            if (res && res.errCode === 0) {
+                toast.success(" 🦄 Create cinema technology succeed !")
+                dispatch({
+                    type: actionTypes.CREATE_CINEMA_TECH_SUCESS
+                });
+                dispatch(fetchAllCinemaTech())
+            } else {
+                toast.error(" 🦄 Create cinema technology error !")
+                dispatch({
+                    type: actionTypes.CREATE_CINEMA_TECH_FAIL
+                })
+            }
+        } catch (e) {
+            console.log(e)
+            toast.error(" 🦄 Create cinema technology error !")
+            dispatch({
+                type: actionTypes.CREATE_CINEMA_TECH_FAIL
+            })
+        }
+    }
+}
+export const editCinemaTechAction = (data) => {
+    return async (dispatch, getState) => {
+        try {
+            let res = await editCinemaTech(data);
+            if (res && res.errCode === 0) {
+                toast.success(" 🦄 Save cinema technology succeed !")
+                dispatch({
+                    type: actionTypes.EDIT_CINEMA_TECH_SUCESS
+                });
+                dispatch(fetchAllCinemaTech())
+            } else {
+                toast.error(" 🦄 Save cinema technology error !")
+                dispatch({
+                    type: actionTypes.EDIT_CINEMA_TECH_FAIL
+                })
+            }
+        } catch (e) {
+            console.log(e)
+            toast.error(" 🦄 Save cinema technology error !")
+            dispatch({
+                type: actionTypes.EDIT_CINEMA_TECH_FAIL
+            })
+        }
+    }
+}
+export const deleteCinemaTechAction = (cinemaTechId) => {
+    return async (dispatch, getState) => {
+        try {
+            let res = await deleteCinemaTech(cinemaTechId)
+            if (res && res.errCode === 0) {
+                toast.success(" 🦄 Delete cinema technology succeed !")
+                dispatch({
+                    type: actionTypes.DELETE_CINEMA_TECH_SUCCESS
+                });
+                dispatch(fetchAllCinemaTech())
+            } else {
+                toast.error(" 🦄 Delete cinema technology error !")
+                dispatch({
+                    type: actionTypes.DELETE_CINEMA_TECH_FAIL
+                });
+            }
+        } catch (e) {
+            console.log(e)
+            toast.error(" 🦄 Delete cinema technology error !")
+            dispatch({
+                type: actionTypes.DELETE_CINEMA_TECH_FAIL
+            });
+        }
+    }
+}
+//seat 
+export const fetchAllSeat = () => {
+    return async (dispatch, getState) => {
+        try {
+            let res = await getAllCodeService('SEAT')
+            if (res && res.errCode === 0) {
+                dispatch({
+                    type: actionTypes.FETCH_SEAT_SUCCESS,
+                    dataSeat: res.data
+                })
+            }
+            else {
+                dispatch({
+                    type: actionTypes.FETCH_SEAT_FAIL
+                })
+            }
+        } catch (e) {
+            console.log(e)
+            dispatch({
+                type: actionTypes.FETCH_SEAT_FAIL
+            })
+        }
+    }
+}
+//price
+export const fetchAllPrice = () => {
+    return async (dispatch, getState) => {
+        try {
+            let res = await getAllPrice()
+            if (res && res.errCode === 0) {
+                dispatch({
+                    type: actionTypes.FETCH_PRICE_SUCCESS,
+                    dataPrice: res.data
+                })
+            }
+            else {
+                dispatch({
+                    type: actionTypes.FETCH_PRICE_FAIL
+                })
+            }
+        } catch (e) {
+            console.log(e)
+            dispatch({
+                type: actionTypes.FETCH_PRICE_FAIL
+            })
+        }
+    }
+}
+// seat type
+export const fetchAllSeatType = () => {
+    return async (dispatch, getState) => {
+        try {
+            let res = await getAllCodeService('SEAT TYPE')
+            if (res && res.errCode === 0) {
+                dispatch({
+                    type: actionTypes.FETCH_SEAT_TYPE_SUCCESS,
+                    dataSeatType: res.data
+                })
+            }
+            else {
+                dispatch({
+                    type: actionTypes.FETCH_SEAT_TYPE_FAIL
+                })
+            }
+        } catch (e) {
+            console.log(e)
+            dispatch({
+                type: actionTypes.FETCH_SEAT_TYPE_FAIL
+            })
+        }
+    }
+}
+//payment-type
+export const fetchAllPaymentType = () => {
+    return async (dispatch, getState) => {
+        try {
+            let res = await getAllPaymentTypes()
+            if (res && res.errCode === 0) {
+                dispatch({
+                    type: actionTypes.FETCH_PAYMENT_TYPE_SUCCESS,
+                    dataPaymentType: res.data
+                })
+            }
+            else {
+                dispatch({
+                    type: actionTypes.FETCH_PAYMENT_TYPE_FAIL
+                })
+            }
+        } catch (e) {
+            console.log(e)
+            dispatch({
+                type: actionTypes.FETCH_PAYMENT_TYPE_FAIL
+            })
+        }
+    }
+}
+export const createPaymentTypeAction = (data) => {
+    return async (dispatch, getState) => {
+        try {
+            let res = await createPaymentType(data);
+            if (res && res.errCode === 0) {
+                toast.success(" 🦄 Create payment type succeed !")
+                dispatch({
+                    type: actionTypes.CREATE_PAYMENT_TYPE_SUCESS
+                });
+            } else {
+                toast.error(" 🦄 Create payment type error !")
+                dispatch({
+                    type: actionTypes.CREATE_PAYMENT_TYPE_FAIL
+                })
+            }
+        } catch (e) {
+            console.log(e)
+            toast.error(" 🦄 Create payment type error !")
+            dispatch({
+                type: actionTypes.CREATE_PAYMENT_TYPE_FAIL
+            })
+        }
+    }
+}
+//buy combo
+export const fetchAllBuyCombo = () => {
+
+    return async (dispatch, getState) => {
+        try {
+            let res = await getAllBuyCombos();
+            if (res && res.errCode === 0) {
+                dispatch({
+                    type: actionTypes.FETCH_ALL_BUY_COMBOS_SUCCESS,
+                    dataAllBuyCombo: res.data,
+                });
+            }
+            else {
+                dispatch({
+                    type: actionTypes.FETCH_ALL_BUY_COMBOS_FAIL,
+                })
+            }
+        } catch (e) {
+            console.log('FETCH_ALL_BUY_COMBOS_FAIL: ', e)
+            dispatch({
+                type: actionTypes.FETCH_ALL_BUY_COMBOS_FAIL,
+            })
+        }
+    }
+}
+export const createBuyComboAction = (data) => {
+    return async (dispatch, getState) => {
+        try {
+            let res = await createBuyCombo(data);
+            if (res && res.errCode === 0) {
+                toast.success(" 🦄 Create combo succeed !")
+                dispatch({
+                    type: actionTypes.CREATE_BUY_COMBO_SUCESS
+                });
+                dispatch(fetchAllBuyCombo())
+            } else {
+                toast.error(" 🦄 Create combo error !")
+                dispatch({
+                    type: actionTypes.CREATE_BUY_COMBO_FAIL
+                })
+            }
+        } catch (e) {
+            console.log(e)
+            toast.error(" 🦄 Create combo error !")
+            dispatch({
+                type: actionTypes.CREATE_BUY_COMBO_FAIL
+            })
+        }
+    }
+}
+export const editBuyComboAction = (data) => {
+    return async (dispatch, getState) => {
+        try {
+            let res = await editBuyCombo(data);
+            if (res && res.errCode === 0) {
+                toast.success(" 🦄 Save combo succeed !")
+                dispatch({
+                    type: actionTypes.EDIT_BUY_COMBO_SUCESS
+                });
+                dispatch(fetchAllBuyCombo())
+            } else {
+                toast.error(" 🦄 Save combo error !")
+                dispatch({
+                    type: actionTypes.EDIT_BUY_COMBO_FAIL
+                })
+            }
+        } catch (e) {
+            console.log(e)
+            toast.error(" 🦄 Save combo error !")
+            dispatch({
+                type: actionTypes.EDIT_BUY_COMBO_FAIL
+            })
+        }
+    }
+}
+export const deleteBuyComboAction = (buyComboId) => {
+    return async (dispatch, getState) => {
+        try {
+            let res = await deleteBuyCombo(buyComboId)
+            if (res && res.errCode === 0) {
+                toast.success(" 🦄 Delete combo succeed !")
+                dispatch({
+                    type: actionTypes.DELETE_BUY_COMBO_SUCCESS
+                });
+                dispatch(fetchAllBuyCombo())
+            } else {
+                toast.error(" 🦄 Delete combo error !")
+                dispatch({
+                    type: actionTypes.DELETE_BUY_COMBO_FAIL
+                });
+            }
+        } catch (e) {
+            console.log(e)
+            toast.error(" 🦄 Delete cinema technology error !")
+            dispatch({
+                type: actionTypes.DELETE_BUY_COMBO_FAIL
             });
         }
     }

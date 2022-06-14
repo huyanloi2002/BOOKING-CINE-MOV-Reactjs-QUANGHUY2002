@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { push } from "connected-react-router";
-
 import * as actions from "../../store/actions";
-
-
 import './Login.scss';
 import { FormattedMessage } from 'react-intl';
 import { handleLoginApi } from '../../services/userService';
@@ -61,9 +58,13 @@ class Login extends Component {
             isShowPassword: !this.state.isShowPassword
         })
     }
+    handleKeyDown = (event) => {
+        if (event.key === 'Enter' || event.keyCode === 13) {
+            this.handleLogin();
+        }
+    }
     render() {
         //JSX
-
         return (
             <div className="login-background">
                 <div className="login-container">
@@ -76,6 +77,7 @@ class Login extends Component {
                                 placeholder="Enter your username"
                                 value={this.state.username}
                                 onChange={(event) => this.handleOneChangeUsername(event)}
+                                onKeyDown={(event) => { this.handleKeyDown(event) }}
                             />
                         </div>
                         <div className="col-12 form-group login-input">
@@ -86,6 +88,7 @@ class Login extends Component {
                                     type={this.state.isShowPassword ? 'text' : 'password'}
                                     placeholder="Enter your password"
                                     onChange={(event) => this.handleOneChangePassword(event)}
+                                    onKeyDown={(event) => { this.handleKeyDown(event) }}
                                 />
                                 <span
                                     onClick={() => { this.handleShowHidePassword() }}>

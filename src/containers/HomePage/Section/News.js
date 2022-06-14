@@ -31,9 +31,11 @@ class News extends Component {
     }
     render() {
         let arrTopNews = this.state.arrTopNew
-        console.log('arrTopNews', arrTopNews)
         return (
             <section className="section-news">
+                <div className="title-news">
+                    <span className="title-content">NEWS</span>
+                </div>
                 <Swiper
                     slidesPerView={3}
                     spaceBetween={10}
@@ -97,7 +99,6 @@ class News extends Component {
                                     </div>
                                     <div className="card-description" dangerouslySetInnerHTML={{ __html: item.contentHTML }}></div>
                                 </div>
-
                             </div>
                         </SwiperSlide>
                     )

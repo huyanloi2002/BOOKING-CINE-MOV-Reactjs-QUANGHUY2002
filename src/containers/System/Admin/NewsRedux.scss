@@ -21,8 +21,8 @@
             padding: 30px;
             border-radius: 20px;
             height: max-content;
-            display: flex;
-            gap:20px;
+            // display: flex;
+            // gap:20px;
            .input-news{
             .form-group{
                 .form-control-news{
@@ -54,7 +54,7 @@
                     cursor: pointer;
 
                     .label-upload {
-                        background: #7d2ae8;
+                        background: #560e6f;
                         border-radius: 40px;
                         width: 110px;
                         text-align: center;
@@ -139,7 +139,7 @@
             border-radius: 10px;
             height: max-content;
             .btn-film{
-                background: #7d2ae8;
+                background: #560e6f;
                 border: 1px solid black;
                 outline: none;
                 border-radius: 10px;

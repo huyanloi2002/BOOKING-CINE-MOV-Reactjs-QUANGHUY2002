@@ -5,7 +5,8 @@ import Navbar from './Navbar/Navbar';
 import Banner from './Section/Banner';
 import SlideMoviesHot from './Section/SlideMoviesHot';
 import News from './Section/News';
-import HomeFooter from './HomeFooter';
+import ContactUs from './Section/ContactUs';
+import Footer from './Section/Footer';
 
 
 class HomePage extends Component {
@@ -24,7 +25,7 @@ class HomePage extends Component {
         if (scrollTops >= 100) {
             this.setState({
                 color: 'black',
-                button: '#7d2ae8'
+                button: '#560e6f'
             })
 
         } else {
@@ -51,7 +52,8 @@ class HomePage extends Component {
                 <Banner />
                 <SlideMoviesHot />
                 <News />
-                <HomeFooter />
+                <ContactUs />
+                <Footer />
             </div>
         );
     }

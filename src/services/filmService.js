@@ -17,15 +17,18 @@ const getAllCodeService = (inputdata) => {
 const getTopFilms = (limit) => {
     return axios.get(`/api/get-top-films?limit=${limit}`)
 }
+//INFOR FILM
 const saveInforFilmService = (data) => {
     return axios.post('/api/save-infor-film', data)
 }
 const getInforFilm = (inputId) => {
     return axios.get(`/api/get-infor-film-by-id?id=${inputId}`)
 }
+//MARKDOWN FILM
 const getMarkdownFilm = (filmId) => {
     return axios.get(`/api/get-markdown-infor-film?filmId=${filmId}`)
 }
+//BANNER FILM
 const getBannerFilm = (filmId) => {
     return axios.get(`/api/get-banner?filmId=${filmId}`)
 }
@@ -35,7 +38,7 @@ const saveBannerFilmService = (data) => {
 const getAllBannerFilms = (limit) => {
     return axios.get(`/api/get-all-banners?limit=${limit}`)
 }
-//news
+//NEWS
 const getAllNews = () => {
     return axios.get(`/api/get-all-news`)
 }
@@ -52,22 +55,87 @@ const getTopNews = (limit) => {
     return axios.get(`/api/get-top-news?limit=${limit}`)
 
 }
+//CONTACT US
+const getAllContact = () => {
+    return axios.get(`/api/get-contact-us`)
+}
+const createContactUs = (data) => {
+    return axios.post('/api/create-contact-us', data)
+}
+//BOOKING TIME
+const saveBulkBookingTime = (data) => {
+    return axios.post('/api/bulk-create-time-booking', data)
+}
+const getBookingTimeByDate = (filmId, date, cinemaTech) => {
+    return axios.get(`/api/get-booking-time-by-date?filmId=${filmId}&date=${date}&cinemaTech=${cinemaTech}`)
+}
+const getBookingTimeBySeat = (filmId, date, cinemaTech, timeType) => {
+    return axios.get(`/api/get-booking-time-by-seat?filmId=${filmId}&date=${date}&cinemaTech=${cinemaTech}&timeType=${timeType}`)
+}
+const getBookingTimeByPrice = (filmId, date, cinemaTech, timeType, seat) => {
+    return axios.get(`/api/get-booking-time-by-price?filmId=${filmId}&date=${date}&cinemaTech=${cinemaTech}&timeType=${timeType}&seat=${seat}`)
+}
+//CINEMA TECH
+const getAllCinemaTechs = () => {
+    return axios.get(`/api/get-all-cinema-tech`)
+}
+const createCinemaTech = (data) => {
+    return axios.post('/api/create-cinema-tech', data)
+}
+const deleteCinemaTech = (CinemaTechId) => {
+    return axios.delete('/api/delete-cinema-tech', { data: { id: CinemaTechId } })
+}
+const editCinemaTech = (inputData) => {
+    return axios.put('/api/edit-cinema-tech', inputData);
+}
+//BUY COMBO
+const getAllBuyCombos = () => {
+    return axios.get(`/api/get-buy-combo`)
+}
+const createBuyCombo = (data) => {
+    return axios.post('/api/creat-buy-combo', data)
+}
+const deleteBuyCombo = (BuyComboId) => {
+    return axios.delete('/api/delete-buy-combo', { data: { id: BuyComboId } })
+}
+const editBuyCombo = (inputData) => {
+    return axios.put('/api/edit-buy-combo', inputData);
+}
+const getBuyComboById = (inputId) => {
+    return axios.get(`/api/get-buy-combo-by-id?id=${inputId}`)
+}
+//PAYMENT_TYPES
+const getAllPaymentTypes = () => {
+    return axios.get(`/api/get-all-payment-types`)
+}
+const createPaymentType = (data) => {
+    return axios.post('/api/creat-payment-types', data)
+}
+//PRICE
+const getAllPrice = () => {
+    return axios.get(`/api/get-all-price`)
+}
 export {
-    getAllFilms,
-    createNewFilmService,
-    deleteFilmService,
-    editFilmService,
+    //film
+    getAllFilms, createNewFilmService, deleteFilmService, editFilmService,
+    //all code
     getAllCodeService,
-    getTopFilms,
-    saveInforFilmService,
-    getInforFilm,
-    getMarkdownFilm,
-    getBannerFilm,
-    saveBannerFilmService,
-    getAllBannerFilms,
-    getAllNews,
-    createNews,
-    deleteNews,
-    editNews,
-    getTopNews
+    //infor film
+    getTopFilms, saveInforFilmService, getInforFilm, getMarkdownFilm,
+    //banner film
+    getBannerFilm, saveBannerFilmService, getAllBannerFilms,
+    //news
+    getAllNews, createNews, deleteNews, editNews, getTopNews,
+    //contact us
+    createContactUs, getAllContact,
+    //booking time
+    saveBulkBookingTime, getBookingTimeByDate,
+    //cinema tech
+    getAllCinemaTechs, createCinemaTech, deleteCinemaTech, editCinemaTech,
+    //buy combo
+    getAllBuyCombos, createBuyCombo, deleteBuyCombo, editBuyCombo, getBuyComboById,
+    //payment-types
+    getAllPaymentTypes, createPaymentType, getBookingTimeBySeat, getBookingTimeByPrice,
+    //price
+    getAllPrice
 }

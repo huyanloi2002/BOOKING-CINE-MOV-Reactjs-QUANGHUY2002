@@ -5,15 +5,27 @@
     background-size: cover;
 }
 .section-news{
-    height:350px;
+    // height:100%;
     width: 100%;
-    background:#7d2ae8;
+    background: #c72a4f;
+    padding:10px 0;
+    .title-news {
+      margin: 0 100px;
+      display: flex;
+      height: 50px;
+      align-items: flex-end;
+      .title-content{
+        font-size: 30px;
+        font-family: system-ui;
+        font-weight: 600;
+        text-shadow: 2px 2px purple;
+      }
+  }
     .mySwiper{
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 350px;
-    
+        height: 290px;
         .card-news {
             display: flex;
             position: relative;
@@ -56,6 +68,7 @@
                 background-color: black;      
                 transform: translateY(100%);
                 transition: .2s ease-in-out;
+                cursor: pointer;
                 .card-header {
                     position: relative;
                     display: flex;
@@ -84,7 +97,7 @@
                         width: 50px;
                         height: 50px;      
                         border-radius: 50%;   
-                       border: 2px solid #7d2ae8;
+                       border: 2px solid #560e6f;
                       }
                       .card-header-text{
                         text-align: left;
@@ -110,7 +123,7 @@
                       }
                   }
                   .card-description {
-                    border-top: 1px solid #7d2ae8;
+                    border-top: 1px solid #560e6f;
                     padding: 0 2em 2em;
                     margin: 0;
                     color: white;
@@ -142,4 +155,18 @@
         color: black !important;;
        
         }
+}
+.swiper-pagination-fraction, .swiper-pagination-custom, .swiper-horizontal > .swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal {
+  bottom: 0px !important;
+}
+@media only screen and (max-width: 991px){   
+  .section-news {  
+      .title-news {
+        margin: 0 20px;
+        .title-content{
+          font-size: 25px;
+          font-weight: 600;
+        }
+        }
+      }
 }

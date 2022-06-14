@@ -53,10 +53,23 @@ class Banner extends Component {
                         if (item.imagebanner) {
                             imageBase64 = new Buffer.from(item.imagebanner, 'base64').toString('binary');
                         }
+                        let nameVi = `${item.Film.nameVi}`
+                        let nameEn = `${item.Film.nameEn}`
                         return (
                             <SwiperSlide>
                                 <div className="container-banners" key={index}>
                                     <div className="banners" style={{ backgroundImage: `url(${imageBase64})` }} ></div>
+                                    <div className="inner">
+                                        <h1 className="name-film">{language === LANGUAGES.VI ? nameVi : nameEn}</h1>
+                                        <blockquote>
+                                            <h3 className="description">{item.description}</h3>
+                                        </blockquote>
+                                        <h2 className="title-booking">
+                                            <span>
+                                                <a href="#">BOOKING NOW</a>
+                                            </span>
+                                        </h2>
+                                    </div>
                                 </div>
                             </SwiperSlide>
                         )

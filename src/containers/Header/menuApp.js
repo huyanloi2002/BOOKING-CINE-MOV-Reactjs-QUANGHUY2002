@@ -7,25 +7,22 @@ export const adminMenu = [
             },
             {
                 name: 'menu.admin.staff-manage', link: '/system/staff-manage'
-                // subMenus: [
-                //     { name: 'menu.system.system-administrator.user-manage', link: '/system/user-manage' },
-                //     { name: 'menu.system.system-administrator.user-redux', link: '/system/user-redux' },
-                // ]
             },
             {
-                name: 'menu.admin.customer-manage', link: '/system/customer-manage'
+                name: 'menu.staff.booking-manage-plan', link: '/staff/booking-manage-plan'
             },
         ]
     },
-    // { // quan ly rap phim
-    //     name: 'menu.admin.cinema',
-    //     menus: [
-    //         {
-    //             name: 'menu.admin.cinema-manage', link: '/system/cinema-manage'
-    //         }
+    { // quan ly rap phim
+        name: 'menu.admin.cinema',
+        menus: [
+            {
+                name: 'menu.admin.cinema-tech-manage', link: '/system/cinema-tech-manage'
+            },
 
-    //     ]
-    // },
+
+        ]
+    },
     // { // quan ly the loai
     //     name: 'menu.admin.genre',
     //     menus: [
@@ -40,8 +37,13 @@ export const adminMenu = [
         menus: [
             {
                 name: 'menu.admin.film-manage', link: '/system/film-manage'
+            },
+            {
+                name: 'menu.admin.buy-combos', link: '/system/buy-combos'
+            },
+            {
+                name: 'menu.admin.payment-type', link: '/system/payment-type'
             }
-
         ]
     },
     { // quan ly phim dang chieu
@@ -79,6 +81,22 @@ export const adminMenu = [
                 name: 'menu.admin.information-manage', link: '/system/information-manage'
             }
 
+        ]
+    }
+
+];
+export const staffMenu = [
+    {
+        name: 'menu.staff.manage',
+        menus: [
+            { // quan ly nguoi dung dat lich xem phim
+                // name: 'menu.staff.manage',
+                // menus: [
+                //     {
+                name: 'menu.staff.booking-manage-plan', link: '/staff/booking-manage-plan'
+                //     },
+                // ]
+            },
         ]
     }
 

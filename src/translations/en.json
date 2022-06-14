@@ -36,11 +36,15 @@
             "customer-manage": "Customer Manage",
             "admin-manage": "Admin (VIP)",
             "cinema": "Cinemas",
+            "province-manage": "Provinces Manage",
             "cinema-manage": "Cinemas Manage",
+            "cinema-tech-manage": "Cinema Technology Manage",
             "genre": "Genres",
             "genre-manage": "Genres Manage",
             "film": "Films",
             "film-manage": "Films Manage",
+            "buy-combos": "Foods, drinks Manage",
+            "payment-type": "Payment Type Manage",
             "information": "Informations",
             "information-manage": "Informations Manage",
             "post-film": "Post of film",
@@ -49,6 +53,10 @@
             "banner-manage": "Banner Manage",
             "news": "News",
             "news-manage": "News Manage"
+        },
+        "staff": {
+            "manage": "Manages",
+            "booking-manage-plan": "Booking Manage Plan"
         }
     },
     "user-manage": {
@@ -72,12 +80,17 @@
         "edit-film": "Edit the film",
         "nameVi": "Name VN",
         "nameEn": "Name EN",
-        "genre": "Genre",
+        "genre": "Genre: ",
         "avatar": "Film's avatar",
         "uploadimage": "Upload",
         "save": "Save film",
         "edit": "Edit film",
-        "show": "Status"
+        "show": "Status",
+        "direction": "Direction: ",
+        "actor": "Actor: ",
+        "dayShow": "Release date: ",
+        "duration": "Duration: ",
+        "language": "Language: "
     },
     "film": {
         "outstanding-showing": "Out Standing Movies",
@@ -88,10 +101,73 @@
         "edit-infor-film": "Edit Infor"
     },
     "infor-film": {
-        "summary": "Summary",
-        "title-content": "Movie Details"
+        "infor": {
+            "summary": "Summary",
+            "title-content": "Movie Details"
+        },
+        "time": {
+            "booking-schedule": "Booking schedule",
+            "no-schedule": "The film is no schedule during this time, please choose a different time!"
+        }
     },
     "modal": {
         "list-films": "List Movies"
+    },
+    "manage-customer-booking": {
+        "title": "Booking Manage Plan",
+        "choose-movie": "Choose Movie",
+        "choose-date": "Choose Date",
+        "save": "Save Infor"
+    },
+    "booking": {
+        "title-price": "Price :",
+        "choose-seat": "Choose Seat",
+        "choose-corn-water": "Choose corn/water",
+        "payment": "Payment",
+        "cinema": "Cinema:",
+        "time": "Time:",
+        "room": "Room:",
+        "seat": "Seat:",
+        "price": "Price:",
+        "combo": "Combo:",
+        "promotion": "Promotion:",
+        "total": "Total:",
+        "CINE-DALAT": "CINE-DALAT",
+        "error1": "Please choose: ",
+        "error2": ", to continue booking tickets.",
+        "thanks": "Thank you very much!"
+    },
+    "contact": {
+        "contact-us": "Contact Us",
+        "address": "ADDRESS:",
+        "phone": "PHONE:",
+        "email": "EMAIL:",
+        "website": "WEBSITE:",
+        "addess-content": "Yersin Da Lat University",
+        "phone-content": "0905711601",
+        "email-content": "huyanloi2002@gmail.com",
+        "website-content": "cine_dalat.com",
+        "get-in-touch": "Get in touch",
+        "submit": "Submit"
+    },
+    "footer": {
+        "BOOKING-CINE-DALAT": "BOOKING CINE-DALAT",
+        "Introduce": "Introduce",
+        "Online-Utilities": "Online Utilities",
+        "Gift-Card": "Gift Card",
+        "Recruit": "Recruit",
+        "Ad-Contacts": "Ad Contacts",
+        "TERMS-OF-USE": "TERMS OF USE",
+        "General-Terms": "General Terms",
+        "Terms-of-Transactions": "Terms of Transactions",
+        "Payment-Policy": "Payment Policy",
+        "Privacy-Policy": "Privacy Policy",
+        "FAQs": "FAQs",
+        "LINK-TO-TELL-US": "LINK TO TELL US",
+        "Ministry-of-Industry-and-Trade": "Ministry of Industry and Trade",
+        "CUSTOMER CARE": "CUSTOMER CARE",
+        "Hotline": "Hotline: 0906711601",
+        "Working-hours": "Working hours: 8:00 - 22:00",
+        "Email": "Email: qHuyK17@bcm.com"
     }
 }

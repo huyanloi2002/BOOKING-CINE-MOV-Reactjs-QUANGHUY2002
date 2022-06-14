@@ -6,6 +6,9 @@ import FilmRedux from '../containers/System/Admin/FilmRedux';
 import PostNowShowing from '../containers/System/Admin/PostNowShowing';
 import BannerRedux from '../containers/System/Admin/BannerRedux';
 import NewsRedux from '../containers/System/Admin/NewsRedux';
+import CinemaTechRedux from '../containers/System/Admin/CinemaTechRedux';
+import BuyComboRedux from '../containers/System/Admin/BuyComboRedux';
+import PaymentTypesRedux from '../containers/System/Admin/PaymentTypesRedux';
 import Header from '../containers/Header/Header';
 import CustomScrollbars from '../components/CustomScrollbars';
 
@@ -24,6 +27,9 @@ class System extends Component {
                                 <Route path="/system/post-now-showing-manage" component={PostNowShowing} />
                                 <Route path="/system/banner-manage" component={BannerRedux} />
                                 <Route path="/system/news-manage" component={NewsRedux} />
+                                <Route path="/system/cinema-tech-manage" component={CinemaTechRedux} />
+                                <Route path="/system/buy-combos" component={BuyComboRedux} />
+                                <Route path="/system/payment-type" component={PaymentTypesRedux} />
                                 <Route component={() => { return (<Redirect to={systemMenuPath} />) }} />
                             </Switch>
                         </CustomScrollbars>

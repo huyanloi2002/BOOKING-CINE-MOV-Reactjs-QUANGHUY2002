@@ -34,15 +34,16 @@ class SlideMoviesHot extends Component {
         if (this.props.history) {
             this.props.history.push(`/inforfilm/${film.id}`)
         }
-
     }
     render() {
         let arrTopFilms = this.state.arrFilms;
         let { language } = this.props
-        console.log(this.state)
+        console.log('this.props.history', this.props.history)
         return (
             <section className="section-swiper">
-
+                <div className="title-hot-movies">
+                    <span className="title-content">OUTSTANDING</span>
+                </div>
                 <Swiper
                     slidesPerView={4}
                     spaceBetween={0}
@@ -100,7 +101,7 @@ class SlideMoviesHot extends Component {
                                         <div className="title-movie">
                                             <div className="name">{language === LANGUAGES.VI ? nameFilmVI : nameFilmEN}</div>
                                             <div className="genre">({language === LANGUAGES.VI ? genreVi : genreEn})</div>
-                                            <div className="time">128 m</div>
+                                            <div className="time">{item.duration}</div>
                                         </div>
                                         <div className="rating">
                                             <i className="fas fa-star"></i>

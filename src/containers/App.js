@@ -11,10 +11,11 @@ import Home from '../routes/Home';
 import Login from './Auth/Login';
 import System from '../routes/System';
 import InforFilm from './Customer/Film/InforFilm';
+import BookingFilm from './Customer/Film/BookingFilm';
 import HomePage from './HomePage/HomePage';
 import NowShowingFilm from './Customer/Film/NowShowingFilm';
 import ComingSoonFilm from './Customer/Film/ComingSoonFilm';
-
+import Staff from '../routes/Staff';
 import { CustomToastCloseButton } from '../components/CustomToast';
 import CustomScrollbars from '../components/CustomScrollbars';
 
@@ -49,10 +50,12 @@ class App extends Component {
                                     <Route path={path.HOME} exact component={(Home)} />
                                     <Route path={path.LOGIN} component={userIsNotAuthenticated(Login)} />
                                     <Route path={path.SYSTEM} component={userIsAuthenticated(System)} />
-                                    <Route path={path.HOMEPAGE} component={HomePage} />
-                                    <Route path={path.INFOR_FILM} component={InforFilm} />
+                                    <Route path={path.HOMEPAGE} component={(HomePage)} />
+                                    <Route path={path.INFOR_FILM} component={userIsAuthenticated(InforFilm)} />
+                                    <Route path={path.BOOKING_FILM} component={userIsAuthenticated(BookingFilm)} render={state => <BookingFilm {...state} />} />
                                     <Route path={path.NOW_SHOWING_FILM} component={NowShowingFilm} />
                                     <Route path={path.COMING_SOON_FILM} component={ComingSoonFilm} />
+                                    <Route path={path.STAFF} component={userIsAuthenticated(Staff)} />
                                 </Switch>
                             </CustomScrollbars>
                         </div>

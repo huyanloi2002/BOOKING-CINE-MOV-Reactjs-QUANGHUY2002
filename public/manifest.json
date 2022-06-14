@@ -1,9 +1,9 @@
 {
-  "short_name": "Booking Cine-Film",
-  "name": "Booking Cine-Film",
+  "short_name": "CINE-DALAT",
+  "name": "CINE-DALAT",
   "icons": [
     {
-      "src": "favicon.ico",
+      "src": "logo.ico",
       "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/x-icon"
     }

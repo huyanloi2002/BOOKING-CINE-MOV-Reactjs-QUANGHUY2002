@@ -76,7 +76,6 @@ class PostNowShowing extends Component {
         let res = await getMarkdownFilm(selectedFilm.value);
         if (res && res.errCode === 0 && res.data) {
             let markdown = res.data;
-            console.log(markdown)
             this.setState({
                 contentHTML: markdown.contentHTML,
                 contentMarkdown: markdown.contentMarkdown,
@@ -107,48 +106,51 @@ class PostNowShowing extends Component {
                     BOOKING CINE-FILM
                 </div>
                 <div className="film-redux-body film-form my-2" >
-                    <div className="container col-12">
+                    <div className="container col-md-12">
                         <div className="row">
                             <div className="container-post col-md-12">
-                                <div className="more-infor">
-                                    <div className="content-left">
-                                        <label className="title-name">Chọn phim:</label>
-                                        <Select
-                                            value={this.state.selectedFilm}
-                                            onChange={this.handleChangeSelectFilm}
-                                            options={this.state.listAllFilm}
-                                            classNam="form-control select-content"
-
-                                        />
-                                    </div>
-                                    <div className="content-right form-group">
-                                        <label className="title-name">Thông tin giới thiệu:</label>
-                                        <textarea className="form-control" rows="12"
-                                            onChange={(event) => this.handleOnChangeDescription(event)}
-                                            value={this.state.description}
-                                        >
-                                        </textarea>
-                                    </div>
-                                </div>
-                                <div className="form-btn col-4">
-                                    <button className=
-                                        {hasOldData === true ? "edit-btn" : "create-btn"}
-                                        onClick={() => this.handleSaveContentMarkdown()}
-                                    ><div className="title-save">
-                                            {hasOldData === true ?
-                                                <FormattedMessage id="post-film.edit-infor-film" />
-                                                :
-                                                <FormattedMessage id="post-film.create-infor-film" />
-                                            }
+                                <div className="row">
+                                    <div className="more-infor">
+                                        <div className="row">
+                                            <div className="content-left">
+                                                <label className="title-name">Chọn phim:</label>
+                                                <Select
+                                                    value={this.state.selectedFilm}
+                                                    onChange={this.handleChangeSelectFilm}
+                                                    options={this.state.listAllFilm}
+                                                    className="form-control select-content"
+                                                />
+                                            </div>
+                                            <div className="content-right form-group">
+                                                <label className="title-name">Thông tin giới thiệu:</label>
+                                                <textarea className="form-control" rows="12"
+                                                    onChange={(event) => this.handleOnChangeDescription(event)}
+                                                    value={this.state.description}
+                                                >
+                                                </textarea>
+                                            </div>
                                         </div>
-                                    </button>
+                                    </div>
+                                    <div className="form-btn col-md-4">
+                                        <button className=
+                                            {hasOldData === true ? "edit-btn" : "create-btn"}
+                                            onClick={() => this.handleSaveContentMarkdown()}
+                                        ><div className="title-save">
+                                                {hasOldData === true ?
+                                                    <FormattedMessage id="post-film.edit-infor-film" />
+                                                    :
+                                                    <FormattedMessage id="post-film.create-infor-film" />
+                                                }
+                                            </div>
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div className="film-redux-body" >
-                    <div className="container col-12">
+                    <div className="container col-md-12">
                         <div className="row">
                             <div className="container-post col-md-12">
                                 <MdEditor

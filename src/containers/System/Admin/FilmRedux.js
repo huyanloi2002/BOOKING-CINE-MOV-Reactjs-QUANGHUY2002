@@ -20,6 +20,11 @@ class FilmRedux extends Component {
             genre: '',
             show: '',
             avatar: '',
+            director: '',
+            actor: '',
+            dayShow: '',
+            duration: '',
+            language: '',
             action: '',
             filmEditId: '',
             previewImage: '',
@@ -53,6 +58,11 @@ class FilmRedux extends Component {
             this.setState({
                 nameVi: '',
                 nameEn: '',
+                director: '',
+                actor: '',
+                dayShow: '',
+                duration: '',
+                language: '',
                 genre: arrGenres && arrGenres.length > 0 ? arrGenres[0].keyMap : '',
                 show: arrShows && arrShows.length > 0 ? arrShows[0].keyMap : '',
                 avatar: '',
@@ -76,7 +86,6 @@ class FilmRedux extends Component {
         let file = data[0];
         if (file) {
             let base64 = await CommonUtils.getBase64(file);
-            console.log('base 64 image: ', base64)
             let objectUrl = URL.createObjectURL(file)
             this.setState({
                 previewImage: objectUrl,
@@ -102,7 +111,12 @@ class FilmRedux extends Component {
                 nameEn: this.state.nameEn,
                 genreId: this.state.genre,
                 showId: this.state.show,
-                avatar: this.state.avatar
+                avatar: this.state.avatar,
+                director: this.state.director,
+                actor: this.state.actor,
+                dayShow: this.state.dayShow,
+                duration: this.state.duration,
+                language: this.state.language,
             })
             this.setState({
                 isOpenModalFilm: true
@@ -115,7 +129,12 @@ class FilmRedux extends Component {
                 nameEn: this.state.nameEn,
                 genreId: this.state.genre,
                 showId: this.state.show,
-                avatar: this.state.avatar
+                avatar: this.state.avatar,
+                director: this.state.director,
+                actor: this.state.actor,
+                dayShow: this.state.dayShow,
+                duration: this.state.duration,
+                language: this.state.language,
             })
             this.setState({
                 isOpenModalFilm: true
@@ -151,6 +170,11 @@ class FilmRedux extends Component {
             nameEn: film.nameEn,
             genre: film.genreId,
             show: film.showId,
+            director: film.director,
+            actor: film.actor,
+            dayShow: film.dayShow,
+            duration: film.duration,
+            language: film.language,
             avatar: '',
             previewImage: imageBase64,
             action: CRUD_ACTIONS.EDIT,
@@ -162,9 +186,11 @@ class FilmRedux extends Component {
     render() {
         let genres = this.state.genreArr;
         let shows = this.state.showArr;
-        let language = this.props.language;
+        let languages = this.props.language;
         let isLoadGenre = this.props.isLoadingGenre
-        let { nameVi, nameEn, genre, show, avatar } = this.state
+        let { nameVi, nameEn, genre, show, avatar, director, actor, dayShow, duration, language } = this.state
+        console.log('this.props', this.state)
+
         return (
             <React.Fragment>
                 <div className="film-redux-container">
@@ -172,7 +198,6 @@ class FilmRedux extends Component {
                         BOOKING CINE-FILM
                     </div>
                     <div className="film-redux-body" >
-
                         <div className="container col-12">
                             <div className="row">
                                 <div className="booking-form col-md-11">
@@ -203,7 +228,56 @@ class FilmRedux extends Component {
 
                                             />
                                         </div>
-                                        <div className="form-group-select col-12">
+                                        <div className="form-group-infor col-md-12">
+                                            <div className="row">
+                                                <div className="direction col-md-6">
+                                                    <span className="form-label"><FormattedMessage id="film-manage.direction" /></span>
+                                                    <input className="form-control" type="text" placeholder="..."
+                                                        value={director}
+                                                        onChange={(event) => { this.onChangeInput(event, 'director') }}
+
+                                                    />
+                                                </div>
+                                                <div className="actor col-md-6">
+                                                    <span className="form-label"><FormattedMessage id="film-manage.actor" /></span>
+                                                    <input className="form-control" type="text" placeholder="..."
+                                                        value={actor}
+                                                        onChange={(event) => { this.onChangeInput(event, 'actor') }}
+
+                                                    />
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div className="form-group-infor col-md-12">
+                                            <div className="row">
+                                                <div className="dayShow col-md-3">
+                                                    <span className="form-label"><FormattedMessage id="film-manage.dayShow" /></span>
+                                                    <input className="form-control" type="text" placeholder="..."
+                                                        value={dayShow}
+                                                        onChange={(event) => { this.onChangeInput(event, 'dayShow') }}
+
+                                                    />
+                                                </div>
+                                                <div className="duration col-md-4">
+                                                    <span className="form-label"><FormattedMessage id="film-manage.duration" /></span>
+                                                    <input className="form-control" type="text" placeholder="..."
+                                                        value={duration}
+                                                        onChange={(event) => { this.onChangeInput(event, 'duration') }}
+
+                                                    />
+                                                </div>
+                                                <div className="language col-md-5">
+                                                    <span className="form-label"><FormattedMessage id="film-manage.language" /></span>
+                                                    <input className="form-control" type="text" placeholder="..."
+                                                        value={language}
+                                                        onChange={(event) => { this.onChangeInput(event, 'language') }}
+
+                                                    />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="form-group-select col-md-12">
                                             <div className="genre col-6">
                                                 <span className="form-label-select"><FormattedMessage id="film-manage.genre" /></span>
                                                 <select className="form-control-select"
@@ -214,7 +288,7 @@ class FilmRedux extends Component {
                                                         genres.map((item, index) => {
                                                             return (
                                                                 <option key={index} value={item.keyMap}>
-                                                                    {language === LANGUAGES.VI ? item.valueVi : item.valueEn}
+                                                                    {languages === LANGUAGES.VI ? item.valueVi : item.valueEn}
                                                                 </option>
                                                             )
                                                         })
@@ -232,7 +306,7 @@ class FilmRedux extends Component {
                                                         shows.map((item, index) => {
                                                             return (
                                                                 <option key={index} value={item.keyMap}>
-                                                                    {language === LANGUAGES.VI ? item.valueVi : item.valueEn}
+                                                                    {languages === LANGUAGES.VI ? item.valueVi : item.valueEn}
                                                                 </option>
                                                             )
                                                         })
@@ -241,7 +315,6 @@ class FilmRedux extends Component {
                                                 <span className="select-arrow"></span>
                                             </div>
                                         </div>
-
                                         <div className="form-group">
                                             <span className="form-label"><FormattedMessage id="film-manage.avatar" /></span>
                                             <div className="preview-img-container">

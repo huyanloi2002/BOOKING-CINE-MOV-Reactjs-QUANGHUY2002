@@ -12,8 +12,9 @@ import 'flag-icon-css/css/flag-icons.min.css';
 import 'bootstrap/dist/js/bootstrap';
 import 'bootstrap/dist/css/bootstrap.css';
 import styled from 'styled-components';
-class Navbar extends Component {
+import * as actions from "../../../store/actions";
 
+class Navbar extends Component {
 
     changeLanguage = (language) => {
         this.props.changeLanguageAppRedux(language)
@@ -24,8 +25,14 @@ class Navbar extends Component {
             this.props.history.push(`/home`)
         }
     }
+    goToLogin = () => {
+        if (this.props.history) {
+            this.props.history.push(`/login`)
+        }
+    }
     render() {
         let language = this.props.language;
+        const { systemMenuPath, isLoggedIn, userInfo, processLogout } = this.props
         return (
             <header className="header">
                 <div className="headernav" style={{
@@ -36,7 +43,7 @@ class Navbar extends Component {
                         <nav className="navbar navbar-expand-lg my-navbar navbar-light">
                             <div className="container-fluid">
                                 <img className="header-logo" src={logo} onClick={() => this.returnToHome()} />
-                                <button className="navbar-toggler navbar-dark" type="button" data-bs-toggle="collapse"
+                                <button className="navbar-toggler navbar-white" type="button" data-bs-toggle="collapse"
                                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                                     aria-expanded="false" aria-label="Toggle navigation">
                                     <span className="navbar-toggler-icon"></span>
@@ -83,7 +90,30 @@ class Navbar extends Component {
                                             <a className="nav-link" href="#">Support</a>
                                         </li>
                                     </ul>
-                                    <form className="d-flex" >
+                                    {isLoggedIn ? <div className="language">
+                                        <div className="infor-customer">
+                                            <div className="image-customer"></div>
+                                            <span className="welcome">
+                                                {userInfo && userInfo.firstName ? userInfo.lastName : ''}&nbsp;
+                                                {userInfo && userInfo.lastName ? userInfo.firstName : ''} !
+                                            </span>
+                                        </div>
+                                        <div className="dropdown">
+                                            <button className="btn btn-black dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                                <i className="fas fa-globe"></i>
+                                            </button>
+                                            <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                                <li className={language === LANGUAGES.VI ? 'language-vi active' : 'language-vi'}><a onClick={() => this.changeLanguage(LANGUAGES.VI)}><span className="flag-icon flag-icon-vn mx-2"></span></a></li>
+                                                <li className={language === LANGUAGES.EN ? 'language-en active' : 'language-en'}><a onClick={() => this.changeLanguage(LANGUAGES.EN)}><span className="flag-icon flag-icon-gb mx-2"></span></a></li>
+                                            </ul>
+                                            {/* nút logout */}
+                                        </div>
+                                        <div className="btn-log btn-logout" onClick={processLogout} title="Log out">
+                                            <div className="btn-content">
+                                                <i className="fas fa-sign-out-alt"></i>
+                                            </div>
+                                        </div>
+                                    </div> : <form className="d-flex" >
                                         <button
                                             className="header-btn my-2 my-sm-0"
                                             type="submit"
@@ -91,8 +121,9 @@ class Navbar extends Component {
                                                 backgroundColor: `${this.props.button}`,
                                                 transition: 'all 0.3s',
                                             }}
-                                        >Sign in</button>
-                                    </form>
+                                            onClick={() => this.goToLogin()}
+                                        >Sign In</button>
+                                    </form>}
                                 </div>
                             </div>
                         </nav>
@@ -115,7 +146,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        changeLanguageAppRedux: (language) => dispatch(changeLanguageApp(language))
+        changeLanguageAppRedux: (language) => dispatch(actions.changeLanguageApp(language)),
+        processLogout: () => dispatch(actions.processLogout()),
     };
 };
 
