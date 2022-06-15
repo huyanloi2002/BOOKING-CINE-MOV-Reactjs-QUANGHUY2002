@@ -34,7 +34,12 @@ class News extends Component {
         return (
             <section className="section-news">
                 <div className="title-news">
-                    <span className="title-content">NEWS</span>
+                    <span className="title-content">
+                        <FormattedMessage id="news.title-news" />
+                    </span>
+                    <button className="btn-seemore-news">
+                        <span><FormattedMessage id="news.see-more-news" /></span>
+                    </button>
                 </div>
                 <Swiper
                     slidesPerView={3}

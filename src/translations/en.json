@@ -169,5 +169,13 @@
         "Hotline": "Hotline: 0906711601",
         "Working-hours": "Working hours: 8:00 - 22:00",
         "Email": "Email: qHuyK17@bcm.com"
+    },
+    "outstanding": {
+        "title-outstanding": "OUTSTANDING",
+        "see-more-outstanding": "See more"
+    },
+    "news": {
+        "title-news": "NEWS",
+        "see-more-news": "See more"
     }
 }

@@ -42,7 +42,12 @@ class SlideMoviesHot extends Component {
         return (
             <section className="section-swiper">
                 <div className="title-hot-movies">
-                    <span className="title-content">OUTSTANDING</span>
+                    <span className="title-content">
+                        <FormattedMessage id="outstanding.title-outstanding" />
+                    </span>
+                    <button className="btn-seemore-outstanding">
+                        <span><FormattedMessage id="outstanding.see-more-outstanding" /></span>
+                    </button>
                 </div>
                 <Swiper
                     slidesPerView={4}

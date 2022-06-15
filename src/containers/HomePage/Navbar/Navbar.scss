@@ -75,9 +75,12 @@
                         }
                         .image-customer{
                             margin:0 5px;
-                            border: 1px solid white;
                             min-width: 40px;
+                            // background: url('../../../assets/FemaleAvatar.png');
                             border-radius: 50%;
+                            background-position: center;
+                            background-repeat: no-repeat;
+                            background-size: cover;
                         }
                      }
                     .dropdown {

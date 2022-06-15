@@ -60,19 +60,42 @@
   .section-swiper {  
       width: 100%;
       background-color: #560e6f;
-      padding:10px 0;
+      padding:20px 0;
       background-image: url('https://www.movies-at.ie/wp-content/themes/movies-at/assets/img/bg-footer.png');
       .title-hot-movies {
         margin: 0 100px;
         display: flex;
         height: 50px;
-        align-items: flex-end;
+        justify-content: space-between;
+        align-items: center;
         .title-content{
           font-size: 30px;
           font-family: system-ui;
           font-weight: 600;
           text-shadow: 2px 2px purple;
         }
+        .btn-seemore-outstanding{
+            height: 40px;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            border-radius: 5px;
+            background: black;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            &:hover{
+                transition: 0.3s;
+                background: #fff04b;
+                span{
+                    color: black;
+                }
+            }
+            span{
+                padding: 10px;
+                color: white;
+                font-weight: 600;
+            }
+        }
+
         }
       .mySwiper{
                 display: flex;

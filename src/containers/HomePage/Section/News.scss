@@ -8,18 +8,40 @@
     // height:100%;
     width: 100%;
     background: #c72a4f;
-    padding:10px 0;
+    padding:20px 0;
     .title-news {
       margin: 0 100px;
       display: flex;
       height: 50px;
-      align-items: flex-end;
+      justify-content: space-between;
       .title-content{
         font-size: 30px;
         font-family: system-ui;
         font-weight: 600;
         text-shadow: 2px 2px purple;
       }
+      .btn-seemore-news{
+        height: 40px;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        border-radius: 5px;
+        background: black;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        &:hover{
+            transition: 0.3s;
+            background: #fff04b;
+            span{
+                color: black;
+            }
+        }
+        span{
+            padding: 10px;
+            color: white;
+            font-weight: 600;
+        }
+    }
+
   }
     .mySwiper{
         display: flex;

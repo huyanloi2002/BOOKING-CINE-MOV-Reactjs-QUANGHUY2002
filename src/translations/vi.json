@@ -169,5 +169,13 @@
         "Hotlint": "Hotline: 0906711601",
         "Working-hours": "Giờ làm việc: 8:00 - 22:00",
         "Email": "Email: qHuyK17@bcm.com"
+    },
+    "outstanding": {
+        "title-outstanding": "PHIM NỔI BẬT",
+        "see-more-outstanding": "Xem thêm"
+    },
+    "news": {
+        "title-news": "TIN TỨC",
+        "see-more-news": "Xem thêm"
     }
 }

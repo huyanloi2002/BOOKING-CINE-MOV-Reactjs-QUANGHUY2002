@@ -33,6 +33,8 @@ class Navbar extends Component {
     render() {
         let language = this.props.language;
         const { systemMenuPath, isLoggedIn, userInfo, processLogout } = this.props
+        let femaleAvatar = require("../../../assets/FemaleAvatar.png").default
+        let maleAvatar = require("../../../assets/MaleAvatar.png").default
         return (
             <header className="header">
                 <div className="headernav" style={{
@@ -92,10 +94,13 @@ class Navbar extends Component {
                                     </ul>
                                     {isLoggedIn ? <div className="language">
                                         <div className="infor-customer">
-                                            <div className="image-customer"></div>
+                                            {userInfo && userInfo.gender && userInfo.gender === "M" ? <img className="image-customer" src={maleAvatar}
+                                                height="40px" /> : <img className="image-customer" src={femaleAvatar}
+                                                    height="40px" />}
+
                                             <span className="welcome">
                                                 {userInfo && userInfo.firstName ? userInfo.lastName : ''}&nbsp;
-                                                {userInfo && userInfo.lastName ? userInfo.firstName : ''} !
+                                                {userInfo && userInfo.lastName ? userInfo.firstName : ''}
                                             </span>
                                         </div>
                                         <div className="dropdown">
