@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { connect } from "react-redux";
 import { FormattedMessage } from 'react-intl';
 import './BookingFilm.scss';
-import { LANGUAGES, MONEY, TRUEFALSE } from '../../../utils';
-import * as actions from '../../../store/actions'
+import { LANGUAGES, MONEY, TRUEFALSE } from '../../../../utils';
+import * as actions from '../../../../store/actions'
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Label } from 'reactstrap';
 import {
     Stepper,
@@ -17,9 +17,9 @@ import moment from 'moment';
 import BookingSeat from './BookingSeat';
 import BookingBuyCombo from './BookingBuyCombo';
 import BookingPay from './BookingPay';
-import Steppers from './ChildComponent/Steppers';
-import Navbar_Infor from '../Film/Navbar_Infor';
-import ModalError from './ChildComponent/ModalError';
+import Steppers from '../ChildComponent/Steppers';
+import Navbar_Infor from '../../../../containers/Customer/Film/ChildComponent/Navbar_Infor';
+import ModalError from '../ChildComponent/ModalError';
 
 class BookingFilm extends Component {
     constructor(props) {

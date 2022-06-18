@@ -11,10 +11,11 @@ import Home from '../routes/Home';
 import Login from './Auth/Login';
 import System from '../routes/System';
 import InforFilm from './Customer/Film/InforFilm';
-import BookingFilm from './Customer/Film/BookingFilm';
+import BookingFilm from './Customer/Film/Booking/BookingFilm';
 import HomePage from './HomePage/HomePage';
-import NowShowingFilm from './Customer/Film/NowShowingFilm';
-import ComingSoonFilm from './Customer/Film/ComingSoonFilm';
+import Movies from './Customer/Film/ListFilm/Movies';
+import NowShowingFilm from './Customer/Film/ListFilm/NowShowingFilm';
+import ComingSoonFilm from './Customer/Film/ListFilm/ComingSoonFilm';
 import Staff from '../routes/Staff';
 import { CustomToastCloseButton } from '../components/CustomToast';
 import CustomScrollbars from '../components/CustomScrollbars';
@@ -53,8 +54,8 @@ class App extends Component {
                                     <Route path={path.HOMEPAGE} component={(HomePage)} />
                                     <Route path={path.INFOR_FILM} component={userIsAuthenticated(InforFilm)} />
                                     <Route path={path.BOOKING_FILM} component={userIsAuthenticated(BookingFilm)} render={state => <BookingFilm {...state} />} />
-                                    <Route path={path.NOW_SHOWING_FILM} component={NowShowingFilm} />
-                                    <Route path={path.COMING_SOON_FILM} component={ComingSoonFilm} />
+                                    <Route path={path.NOW_SHOWING_FILM} component={userIsAuthenticated(NowShowingFilm)} />
+                                    <Route path={path.COMING_SOON_FILM} component={userIsAuthenticated(ComingSoonFilm)} />
                                     <Route path={path.STAFF} component={userIsAuthenticated(Staff)} />
                                 </Switch>
                             </CustomScrollbars>

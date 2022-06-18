@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { connect } from "react-redux";
 import { FormattedMessage } from 'react-intl';
 import './BookingPay.scss';
-import { LANGUAGES, MONEY, TRUEFALSE } from '../../../utils';
-import * as actions from '../../../store/actions';
-import Countdown from './ChildComponent/Countdown';
+import { LANGUAGES, MONEY, TRUEFALSE } from '../../../../utils';
+import * as actions from '../../../../store/actions';
+import Countdown from '../ChildComponent/Countdown';
 
 class BookingPay extends Component {
     constructor(props) {

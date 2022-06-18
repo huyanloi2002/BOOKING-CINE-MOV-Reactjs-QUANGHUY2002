@@ -1,4 +1,5 @@
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router';
 import './Banner.scss'
 import "@fontsource/quicksand";
 import React, { Component } from 'react';
@@ -24,6 +25,11 @@ class Banner extends Component {
             this.setState({
                 arrBanners: this.props.loadBanner,
             })
+        }
+    }
+    handleViewInforFilm = (film) => {
+        if (this.props.history) {
+            this.props.history.push(`/inforfilm/${film.filmId}`)
         }
     }
     render() {
@@ -66,7 +72,7 @@ class Banner extends Component {
                                         </blockquote>
                                         <h2 className="title-booking">
                                             <span>
-                                                <a href="#">BOOKING NOW</a>
+                                                <a onClick={() => this.handleViewInforFilm(item)}>BOOKING NOW</a>
                                             </span>
                                         </h2>
                                     </div>
@@ -95,4 +101,4 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Banner);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Banner));

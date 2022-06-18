@@ -17,6 +17,9 @@ const getAllCodeService = (inputdata) => {
 const getTopFilms = (limit) => {
     return axios.get(`/api/get-top-films?limit=${limit}`)
 }
+const getMoviesNowComing = (inputdata) => {
+    return axios.get(`/api/get-now-coming-movies?showId=${inputdata}`);
+}
 //INFOR FILM
 const saveInforFilmService = (data) => {
     return axios.post('/api/save-infor-film', data)
@@ -117,7 +120,7 @@ const getAllPrice = () => {
 }
 export {
     //film
-    getAllFilms, createNewFilmService, deleteFilmService, editFilmService,
+    getAllFilms, createNewFilmService, deleteFilmService, editFilmService, getMoviesNowComing,
     //all code
     getAllCodeService,
     //infor film

@@ -30,6 +30,21 @@ class Navbar extends Component {
             this.props.history.push(`/login`)
         }
     }
+    handleClickMoviesNowShowing = () => {
+        if (this.props.history) {
+            this.props.history.push({
+                pathname: `/now-showing-movie`,
+            });
+        }
+    }
+    handleClickMoviesComingSoon = () => {
+        if (this.props.history) {
+            this.props.history.push({
+                pathname: `/coming-soon-movie`,
+            });
+        }
+    }
+
     render() {
         let language = this.props.language;
         const { systemMenuPath, isLoggedIn, userInfo, processLogout } = this.props
@@ -57,32 +72,8 @@ class Navbar extends Component {
                                                 Movies
                                             </a>
                                             <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                                                <li><a className="dropdown-item" href="#">Action</a></li>
-                                                <li><a className="dropdown-item" href="#">Another action</a></li>
-                                                <li><hr className="dropdown-divider" /></li>
-                                                <li><a className="dropdown-item" href="#">Something else here</a></li>
-                                            </ul>
-                                        </li>
-                                        <li className="nav-item dropdown">
-                                            <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                                Cinemas
-                                            </a>
-                                            <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                                                <li><a className="dropdown-item" href="#">Action</a></li>
-                                                <li><a className="dropdown-item" href="#">Another action</a></li>
-                                                <li><hr className="dropdown-divider" /></li>
-                                                <li><a className="dropdown-item" href="#">Something else here</a></li>
-                                            </ul>
-                                        </li>
-                                        <li className="nav-item dropdown">
-                                            <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                                Genre
-                                            </a>
-                                            <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                                                <li><a className="dropdown-item" href="#">Action</a></li>
-                                                <li><a className="dropdown-item" href="#">Another action</a></li>
-                                                <li><hr className="dropdown-divider" /></li>
-                                                <li><a className="dropdown-item" href="#">Something else here</a></li>
+                                                <li><a className="dropdown-item" onClick={() => this.handleClickMoviesNowShowing()}>Phim đang chiếu</a></li>
+                                                <li><a className="dropdown-item" onClick={() => this.handleClickMoviesComingSoon()}>Phim sắp chiếu</a></li>
                                             </ul>
                                         </li>
                                         <li className="nav-item">

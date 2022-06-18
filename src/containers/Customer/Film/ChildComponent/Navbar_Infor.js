@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from "react-redux";
 import { FormattedMessage } from 'react-intl';
 import './Navbar_Infor.scss';
-import { LANGUAGES } from '../../../utils'
+import { LANGUAGES } from '../../../../utils'
 
 class Navbar_Infor extends Component {
 
@@ -21,7 +21,7 @@ class Navbar_Infor extends Component {
     render() {
 
         return (
-            <div className="container-navbar-infor">
+            <header class="header sticky sticky--top ">
                 <div className="content-navbar-infor">
                     <nav className="navbar navbar-light bg-light">
                         <a className="navbar-brand" href="#">
@@ -29,7 +29,8 @@ class Navbar_Infor extends Component {
                         </a>
                     </nav>
                 </div>
-            </div>
+            </header>
+
         );
     }
 }

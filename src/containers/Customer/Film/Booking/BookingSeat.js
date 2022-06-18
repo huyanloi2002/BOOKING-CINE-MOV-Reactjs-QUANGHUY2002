@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import { connect } from "react-redux";
 import { FormattedMessage } from 'react-intl';
 import './BookingSeat.scss';
-import { LANGUAGES, TRUEFALSE } from '../../../utils';
-import * as actions from '../../../store/actions'
+import { LANGUAGES, TRUEFALSE } from '../../../../utils';
+import * as actions from '../../../../store/actions'
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
-import { getBookingTimeByPrice } from '../../../services/filmService'
+import { getBookingTimeByPrice } from '../../../../services/filmService'
 class BookingSeat extends Component {
     constructor(props) {
         super(props);

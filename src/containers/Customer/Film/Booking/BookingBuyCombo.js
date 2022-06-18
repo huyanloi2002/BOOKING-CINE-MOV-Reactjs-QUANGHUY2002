@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import { connect } from "react-redux";
 import { FormattedMessage } from 'react-intl';
 import './BookingBuyCombo.scss';
-import { LANGUAGES, MONEY, TRUEFALSE } from '../../../utils';
-import * as actions from '../../../store/actions'
+import { LANGUAGES, MONEY, TRUEFALSE } from '../../../../utils';
+import * as actions from '../../../../store/actions'
 import { every } from 'lodash';
-import { getBuyComboById } from '../../../services/filmService';
+import { getBuyComboById } from '../../../../services/filmService';
 
 class BookingBuyCombo extends Component {
     constructor(props) {

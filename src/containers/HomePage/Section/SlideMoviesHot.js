@@ -21,31 +21,37 @@ class SlideMoviesHot extends Component {
         }
     }
     componentDidUpdate(prevProps, prevState, snapshot) {
-        if (prevProps.topFilmsRedux !== this.props.topFilmsRedux) {
+        if (prevProps.allMoviesNowRedux !== this.props.allMoviesNowRedux) {
             this.setState({
-                arrFilms: this.props.topFilmsRedux,
+                arrFilms: this.props.allMoviesNowRedux,
             })
         }
     }
     componentDidMount() {
-        this.props.loadTopFilm();
+        this.props.fetchMoviesNowShowingRedux();
     }
     handleViewInforFilm = (film) => {
         if (this.props.history) {
             this.props.history.push(`/inforfilm/${film.id}`)
         }
     }
+    handleViewInforFilmNow = (film) => {
+        if (this.props.history) {
+            this.props.history.push(`/now-showing-movie`)
+        }
+    }
     render() {
         let arrTopFilms = this.state.arrFilms;
         let { language } = this.props
-        console.log('this.props.history', this.props.history)
         return (
             <section className="section-swiper">
                 <div className="title-hot-movies">
                     <span className="title-content">
                         <FormattedMessage id="outstanding.title-outstanding" />
                     </span>
-                    <button className="btn-seemore-outstanding">
+                    <button className="btn-seemore-outstanding"
+                        onClick={() => this.handleViewInforFilmNow()}
+                    >
                         <span><FormattedMessage id="outstanding.see-more-outstanding" /></span>
                     </button>
                 </div>
@@ -139,13 +145,13 @@ const mapStateToProps = state => {
     return {
         isLoggedIn: state.user.isLoggedIn,
         language: state.app.language,
-        topFilmsRedux: state.film.topFilms
+        allMoviesNowRedux: state.film.allMoviesNow,
     };
 };
 
 const mapDispatchToProps = dispatch => {
     return {
-        loadTopFilm: () => dispatch(actions.fetchTopFilms())
+        fetchMoviesNowShowingRedux: () => dispatch(actions.fetchMoviesNowShowing()),
 
     };
 };

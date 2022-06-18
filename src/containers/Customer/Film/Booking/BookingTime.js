@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
 import { FormattedMessage } from 'react-intl';
-import Navbar from '../../HomePage/Navbar/Navbar';
+import Navbar from '../../../HomePage/Navbar/Navbar';
 import './BookingTime.scss';
 import moment from 'moment';
-import { LANGUAGES } from '../../../utils';
-import { getBookingTimeByDate, getBookingTimeBySeat } from '../../../services/filmService';
-import * as actions from '../../../store/actions'
+import { LANGUAGES } from '../../../../utils';
+import { getBookingTimeByDate, getBookingTimeBySeat } from '../../../../services/filmService';
+import * as actions from '../../../../store/actions'
 import BookingFilm from './BookingFilm';
 import { withRouter } from 'react-router';
 class BookingTime extends Component {
@@ -169,7 +169,6 @@ class BookingTime extends Component {
         let { allDays, allTimes, allCinemaTech, isShow, isOption, isShowBF } = this.state;
         let { language } = this.props;
         let uniqueTime = this.getUnique(allTimes, 'timeType')
-        console.log('this.props.arrSeats', this.state.inforDetailFilm)
         // console.log('this.props.match', this.props)
         return (
             <div className="booking-time-container">

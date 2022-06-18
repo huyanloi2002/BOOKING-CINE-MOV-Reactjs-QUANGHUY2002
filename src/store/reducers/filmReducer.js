@@ -16,7 +16,9 @@ const initialState = {
     allPrice: [],
     allBuyCombo: [],
     allPaymentType: [],
-    allSeatType: []
+    allSeatType: [],
+    allMoviesNow: [],
+    allMoviesComing: []
 }
 
 const filmReducer = (state = initialState, action) => {
@@ -66,6 +68,26 @@ const filmReducer = (state = initialState, action) => {
             }
         case actionTypes.FETCH_TOP_FILMS_FAIL:
             state.topFilms = [];
+            return {
+                ...state,
+            }
+        case actionTypes.FETCH_NOW_SHOWING_FILMS_SUCCESS:
+            state.allMoviesNow = action.dataMoviesNow;
+            return {
+                ...state,
+            }
+        case actionTypes.FETCH_NOW_SHOWING_FILMS_FAIL:
+            state.allMoviesNow = [];
+            return {
+                ...state,
+            }
+        case actionTypes.FETCH_COMING_SOON_SUCCESS:
+            state.allMoviesComing = action.dataMoviesComing;
+            return {
+                ...state,
+            }
+        case actionTypes.FETCH_COMING_SOON_FAIL:
+            state.allMoviesComing = [];
             return {
                 ...state,
             }

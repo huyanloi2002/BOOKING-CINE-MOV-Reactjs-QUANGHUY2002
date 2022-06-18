@@ -5,9 +5,9 @@ import Navbar from '../../HomePage/Navbar/Navbar';
 import './InforFilm.scss';
 import { getInforFilm } from '../../../services/filmService';
 import { LANGUAGES } from '../../../utils'
-import BookingTime from './BookingTime';
+import BookingTime from './Booking/BookingTime';
 import * as actions from '../../../store/actions'
-import Navbar_Infor from '../Film/Navbar_Infor'
+import Navbar_Infor from '../../../containers/Customer/Film/ChildComponent/Navbar_Infor'
 
 class InforFilm extends Component {
 

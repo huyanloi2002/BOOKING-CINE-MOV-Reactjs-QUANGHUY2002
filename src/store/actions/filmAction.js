@@ -1,7 +1,7 @@
 import actionTypes from './actionTypes';
 import {
     //film
-    getAllFilms, createNewFilmService, deleteFilmService, editFilmService,
+    getAllFilms, createNewFilmService, deleteFilmService, editFilmService, getMoviesNowComing,
     //all code
     getAllCodeService,
     //infor film
@@ -197,6 +197,50 @@ export const fetchTopFilms = () => {
             console.log('FETCH_TOP_FILMS_FAIL', e)
             dispatch({
                 type: actionTypes.FETCH_TOP_FILMS_FAIL,
+            })
+        }
+    }
+}
+export const fetchMoviesNowShowing = () => {
+    return async (dispatch, getState) => {
+        try {
+            let res = await getMoviesNowComing("W1");
+            if (res && res.errCode === 0) {
+                dispatch({
+                    type: actionTypes.FETCH_NOW_SHOWING_FILMS_SUCCESS,
+                    dataMoviesNow: res.data,
+                })
+            } else {
+                dispatch({
+                    type: actionTypes.FETCH_NOW_SHOWING_FILMS_FAIL,
+                })
+            }
+        } catch (e) {
+            console.log('FETCH_NOW_SHOWING_FILMS_FAIL', e)
+            dispatch({
+                type: actionTypes.FETCH_NOW_SHOWING_FILMS_FAIL,
+            })
+        }
+    }
+}
+export const fetchMoviesComingSoon = () => {
+    return async (dispatch, getState) => {
+        try {
+            let res = await getMoviesNowComing("W2");
+            if (res && res.errCode === 0) {
+                dispatch({
+                    type: actionTypes.FETCH_COMING_SOON_SUCCESS,
+                    dataMoviesComing: res.data
+                })
+            } else {
+                dispatch({
+                    type: actionTypes.FETCH_COMING_SOON_FAIL,
+                })
+            }
+        } catch (e) {
+            console.log('FETCH_COMING_SOON_FAIL', e)
+            dispatch({
+                type: actionTypes.FETCH_COMING_SOON_FAIL,
             })
         }
     }
